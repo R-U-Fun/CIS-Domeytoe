@@ -63,21 +63,53 @@
             
             ReactDOM.render(<HomePageCall/> , document.getElementById("AppHere"));
 
+        function Hearts(HeartsProps){
+            if(HeartsProps.HowManyHearts==0){
+                return null;
+            }
+            else{
+                if(HeartsProps.Fill==true){
+                    return(
+                        <div>
+                            <Hearts Fill={HeartsProps.Fill} HowManyHearts={HeartsProps.HowManyHearts - 1}/>
+                            <i class="bi bi-suit-heart-fill"> </i>
+                        </div>
+                    );
+                }
+                else{
+                    return(
+                        <div>
+                            <Hearts Fill={HeartsProps.Fill} HowManyHearts={HeartsProps.HowManyHearts - 1}/>
+                            <i class="bi bi-suit-heart-fill"> </i>
+                        </div>
+                    );
+            }
+            }
+            
+        }
+        
+        function HowManyHearts(HeartsProps){
+            <HowManyHearts/>
+        }
+
+
+
         function Player(){
             return(
             <div className="container-fluids">
                 <nav className="navbar navbar-expand-md navbar-dark position-sticky" style={{ background: 'rgba(10, 0, 0, 0)', cursor:'default' }}>
                     &nbsp;&nbsp;&nbsp;
-                    <a href="index.php" style={{cursor:'default'}}><img src="https://cdn-icons-png.flaticon.com/512/1202/1202125.png" id="AaroophanIMG" height="35px" width="35px" className="rounded-5" /></a>
-                    &nbsp;&nbsp;&nbsp;
-                    <a className="navbar-brand fw-bold font-arial" id="PageNameA" href="index.php" style={{ cursor:'default', color:'rgba(117, 0, 0, 0.9)' }}>Domeytoe2</a>
+                    <p className="navbar-brand fw-bold font-arial" id="PageNameA" href="index.php" style={{ cursor:'default', color:'rgba(117, 0, 0, 0.9)' }}>Username</p>
+                    &nbsp;&nbsp;&nbsp;<br/>
+                    <p className="navbar-brand fw-bold font-arial" id="PageNameA" href="index.php" style={{ cursor:'default', color:'rgba(117, 0, 0, 0.9)' }}>
+                        <Hearts Fill={true} HowManyHearts={3}/>
+                    </p>
                     &nbsp;&nbsp;&nbsp;
                 </nav>
             </div>
             );
         }
         ReactDOM.render(<Player /> , document.getElementById("PlayerHere"));
-
 
         function Header(){
             return(
@@ -95,22 +127,22 @@
         ReactDOM.render(<Header /> , document.getElementById("HeaderHere"));
 
         function Footer(){
-        return(
-        <footer className="footer text-light py-1 bottom" style={{ background: 'linear-gradient(to bottom, transparent 0%, #111111 100%)' }}>
-            <div className="container">
-                <hr />
-                <div className="text-center">
-                    <a href="http://aaroophan-com.stackstaging.com" style={{ cursor:'default', color:'rgba(250, 210, 210, 0.9)', textDecoration:'none' }}>&copy; 2023 Aaroophan</a>
-                    <ul className="list-inline">
-                        <li className="list-inline-item"><a href="https://www.instagram.com/aaroophan/?theme=dark" style={{ cursor:'default', fontsize: '20px' }}><i className="bi bi-instagram"></i></a></li>
-                        <li className="list-inline-item"><a href="https://twitter.com/Aaroophan" style={{ cursor:'default', fontsize: '20px' }}><i className="bi bi-twitter"></i></a></li>
-                        <li className="list-inline-item"><a href="https://www.linkedin.com/in/aaroophan" style={{ cursor:'default', fontsize: '20px' }}><i className="bi bi-linkedin"></i></a></li>
-                        <li className="list-inline-item"><a href="https://github.com/R-U-Fun" style={{ cursor:'default', fontsize: '20px' }}><i className="bi bi-github"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </footer>
-        );
+            return(
+                <footer className="footer text-light py-1 bottom" style={{ background: 'linear-gradient(to bottom, transparent 0%, #111111 100%)' }}>
+                    <div className="container">
+                        <hr />
+                        <div className="text-center">
+                            <a href="http://aaroophan-com.stackstaging.com" style={{ cursor:'default', color:'rgba(250, 210, 210, 0.9)', textDecoration:'none' }}>&copy; 2023 Aaroophan | 2323492</a>
+                            <ul className="list-inline">
+                                <li className="list-inline-item"><a href="https://www.instagram.com/aaroophan/?theme=dark" style={{ cursor:'default', fontsize: '20px' }}><i className="bi bi-instagram"></i></a></li>
+                                <li className="list-inline-item"><a href="https://twitter.com/Aaroophan" style={{ cursor:'default', fontsize: '20px' }}><i className="bi bi-twitter"></i></a></li>
+                                <li className="list-inline-item"><a href="https://www.linkedin.com/in/aaroophan" style={{ cursor:'default', fontsize: '20px' }}><i className="bi bi-linkedin"></i></a></li>
+                                <li className="list-inline-item"><a href="https://github.com/R-U-Fun" style={{ cursor:'default', fontsize: '20px' }}><i className="bi bi-github"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </footer>
+            );
         }
         ReactDOM.render(<Footer /> , document.getElementById("FooterHere"));
     </script>
