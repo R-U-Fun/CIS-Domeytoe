@@ -28,10 +28,15 @@
 
         function Domeytoe(){
             return(
-                <div>
-                    <br/><br/><br/><br/><br/><br/><br/>
-                    <a>Image here</a>
-                    <br/><br/><br/><br/><br/><br/><br/>
+                <div class="card my-4 text-white" style={{ background: 'rgba(0, 0, 0, 0)', border: 'none',display: 'flex', justifyContent: 'center', alignItems: 'center', width: '18rem'}}>
+                    <img src="https://images3.alphacoders.com/749/749833.jpg" class="card-img-top" alt="..."/>
+                    <div class="card-body" style={{ background: 'rgba(0, 0, 0, 0)', border: 'none' }}>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
+                            <input type="text" class="form-control" placeholder="Answer" aria-label="Answer" aria-describedby="basic-addon1"/>
+                        </div>
+                        <button type="button" class="btn btn-danger"><i class="bi bi-arrow-return-right"></i></button>
+                    </div>
                 </div>
             );
         }
@@ -40,15 +45,11 @@
             function HomePage(){
                 return(
                     <div>
-                        <div id="HomeName"><a><b>Domeytoe</b></a></div>
-
                         <div className="container my-4 text-center">
-                            <div className="row col-lg-12 col-xs-1 gx-3 text-center justify-content-center">
-                                <div className="col-sm-4 col-lg-4 rounded-4" id="box1">
+                            <div className="row gx-3 text-center justify-content-center">
+                                <div className="col-sm-4 col-md-4 col-lg-6 rounded-4" id="box1">
                                     <div className="card my-4 text-white" style={{ background: 'rgba(0, 0, 0, 0)', border: 'none',display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                                        <div className="card-body" style={{ background: 'rgba(0, 0, 0, 0)', border: 'none' }}>
-                                            <Domeytoe/>
-                                        </div>
+                                        <Domeytoe/>
                                     </div>
                                 </div>
                             </div>
@@ -64,52 +65,63 @@
             ReactDOM.render(<HomePageCall/> , document.getElementById("AppHere"));
 
         function Hearts(HeartsProps){
-            if(HeartsProps.HowManyHearts==0){
-                return null;
+            if(HeartsProps.Fill==true){
+                return(
+                    <i class="bi bi-suit-heart-fill"> </i>
+                );
             }
             else{
-                if(HeartsProps.Fill==true){
-                    return(
-                        <div>
-                            <Hearts Fill={HeartsProps.Fill} HowManyHearts={HeartsProps.HowManyHearts - 1}/>
-                            <i class="bi bi-suit-heart-fill"> </i>
-                        </div>
-                    );
-                }
-                else{
-                    return(
-                        <div>
-                            <Hearts Fill={HeartsProps.Fill} HowManyHearts={HeartsProps.HowManyHearts - 1}/>
-                            <i class="bi bi-suit-heart-fill"> </i>
-                        </div>
-                    );
+                return(
+                    <i class="bi bi-suit-heart"> </i>
+                );
             }
-            }
-            
         }
         
-        function HowManyHearts(HeartsProps){
-            <HowManyHearts/>
-        }
-
-
-
         function Player(){
+            let H1 = true;
+            let H2 = true;
+            let H3 = false;
             return(
-            <div className="container-fluids">
-                <nav className="navbar navbar-expand-md navbar-dark position-sticky" style={{ background: 'rgba(10, 0, 0, 0)', cursor:'default' }}>
+            <div className="container-fluids" >
+                <nav className="navbar navbar-expand-md navbar-dark rounded-4" style={{ background: 'rgba(10, 0, 0, 0)', cursor:'default',position: 'absolute', top: '100px', left: '100px'}}  id="box1">
+                    &nbsp;&nbsp;&nbsp;
+                    <p className="navbar-brand fw-bold font-arial" id="PageNameA" href="index.php" style={{ cursor:'default', color:'rgba(117, 0, 0, 0.9)' }}><i class="bi bi-person-fill"></i></p>
                     &nbsp;&nbsp;&nbsp;
                     <p className="navbar-brand fw-bold font-arial" id="PageNameA" href="index.php" style={{ cursor:'default', color:'rgba(117, 0, 0, 0.9)' }}>Username</p>
-                    &nbsp;&nbsp;&nbsp;<br/>
-                    <p className="navbar-brand fw-bold font-arial" id="PageNameA" href="index.php" style={{ cursor:'default', color:'rgba(117, 0, 0, 0.9)' }}>
-                        <Hearts Fill={true} HowManyHearts={3}/>
-                    </p>
                     &nbsp;&nbsp;&nbsp;
+                    <p className="navbar-brand fw-bold font-arial" id="PageNameA" href="index.php" style={{ cursor:'default', color:'rgba(117, 0, 0, 0.9)' }}>
+                        <Hearts Fill={H1}/>
+                        <Hearts Fill={H2}/>
+                        <Hearts Fill={H3}/>
+                    </p>
                 </nav>
             </div>
             );
         }
         ReactDOM.render(<Player /> , document.getElementById("PlayerHere"));
+
+        function Timer(){
+            let H1 = true;
+            let H2 = true;
+            let H3 = false;
+            return(
+            <div className="container-fluids" >
+                <nav className="navbar navbar-expand-md navbar-dark rounded-4" style={{ background: 'rgba(10, 0, 0, 0)', cursor:'default',position: 'absolute', top: '100px', left: '1150px'}}  id="box1">
+                    &nbsp;&nbsp;&nbsp;
+                    <p className="navbar-brand fw-bold font-arial" id="PageNameA" href="index.php" style={{ cursor:'default', color:'rgba(117, 0, 0, 0.9)' }}><i class="bi bi-hourglass-split"></i></p>
+                    &nbsp;&nbsp;&nbsp;
+                    <p className="navbar-brand fw-bold font-arial" id="PageNameA" href="index.php" style={{ cursor:'default', color:'rgba(117, 0, 0, 0.9)' }}>Timer</p>
+                    &nbsp;&nbsp;&nbsp;
+                    <p className="navbar-brand fw-bold font-arial" id="PageNameA" href="index.php" style={{ cursor:'default', color:'rgba(117, 0, 0, 0.9)' }}>
+                        <i class="bi bi-5-square"></i>
+                        &nbsp;
+                        <i class="bi bi-9-square"></i>
+                    </p>
+                </nav>
+            </div>
+            );
+        }
+        ReactDOM.render(<Timer /> , document.getElementById("TimerHere"));
 
         function Header(){
             return(
@@ -185,8 +197,6 @@
             /* transition: box-shadow .2s; */
         }
 
-        /* #box1:hover {} */
-
         #PageNameA {
             font-family: 'Lato', sans-serif;
             text-decoration: none;
@@ -202,8 +212,9 @@
 
 
     <div id="HeaderHere" class="container"></div>
-    <br><br><br><br>
+    <br><br><br>
     <div id="PlayerHere" class="container"></div>
+    <div id="TimerHere" class="container"></div>
 
     <div class="p-4" id="AppHere">
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
