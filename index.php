@@ -23,23 +23,39 @@
 </head>
 
 <body>
-    <script type="text/babel">
+    <script type="text/babel" data-presets="react">
 
-        function StartGame(){
+        function CorrectOrNot(){
+            ReactDOM.render(<Game question={data.question} solution={data.solution} /> , document.getElementById("Box"));
+            return null;
+        }
+
+        function Game(props){
+            console.log(props.question);
+            console.log(props.solution);
             return(
                 <div class="card text-white" style={{ background: 'rgba(0, 0, 0, 0)', border: 'none',display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                     <a className="btn btn-danger m-4 fs-2 fw-bold">Game</a>
-                    <img src="https://www.sanfoh.com/uob/tomato/data/t09d17cc6dc32d7e422f624054an403.png" class="card-img-top" alt="..." style={{objectFit: 'cover'}}/>
+                    <img src={props.question} class="card-img-top" alt="..." style={{objectFit: 'cover'}}/>
                     <div class="card-body" style={{ background: 'rgba(0, 0, 0, 0)', border: 'none' }}>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
                             <input type="text" class="form-control" placeholder="Answer" aria-label="Answer" aria-describedby="basic-addon1"/>
                             &nbsp;&nbsp;&nbsp;
-                            <button type="button" class="btn btn-danger"><i class="bi bi-arrow-return-right"></i></button>
+                            <button type="button" class="btn btn-danger" onClick={function Call(){ReactDOM.render(<CorrectOrNot Correct={props.solution} Answer={null} />, document.getElementById("Box"))}}><i class="bi bi-arrow-return-right"></i></button>
                         </div>
                     </div>
                 </div>
             );
+        }
+        function StartGame(){
+            fetch('https://marcconrad.com/uob/tomato/api.php')
+                .then(response => response.json())
+                .then(data => {
+                    ReactDOM.render(<Game question={data.question} solution={data.solution} /> , document.getElementById("Box"));
+                })
+                .catch(error => console.error('Error:', error));
+            return null;
         }
         function Level(){
             return(
@@ -291,6 +307,7 @@
         }
         ReactDOM.render(<Footer /> , document.getElementById("FooterHere"));
     </script>
+
     <style>
         body {
             /* background: linear-gradient(to top, #750000 0%, #ffeded 100%); */
