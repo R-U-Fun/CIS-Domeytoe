@@ -29,7 +29,7 @@
             return(
                 <div class="card text-white" style={{ background: 'rgba(0, 0, 0, 0)', border: 'none',display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                     <a className="btn btn-danger m-4 fs-2 fw-bold">Game</a>
-                    <img src="https://images3.alphacoders.com/749/749833.jpg" class="card-img-top" alt="..." style={{objectFit: 'cover'}}/>
+                    <img src="https://www.sanfoh.com/uob/tomato/data/t09d17cc6dc32d7e422f624054an403.png" class="card-img-top" alt="..." style={{objectFit: 'cover'}}/>
                     <div class="card-body" style={{ background: 'rgba(0, 0, 0, 0)', border: 'none' }}>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
@@ -119,6 +119,19 @@
                 </div>
             );
         }
+
+        function HomeLinks(){
+            return(
+                <div>
+                    <a className="btn btn-danger m-4 fs-2 fw-bold">Domeytoe</a><br/>
+                    <button className="btn btn-danger btn-lg m-2 fw-bold" onClick={function Call(){ReactDOM.render(<StartGame/>, document.getElementById("Box"))}}>Start Game</button><br/>
+                    <button className="btn btn-danger btn-lg m-2 fw-bold" onClick={function Call(){ReactDOM.render(<Level/>, document.getElementById("Box"))}}>Levels</button><br/>
+                    <button className="btn btn-danger btn-lg m-2 fw-bold" onClick={function Call(){ReactDOM.render(<Leaderboard />, document.getElementById("Box"))}}>Leaderboard</button><br/>
+                    <button className="btn btn-danger btn-lg m-2 fw-bold" onClick={function Call(){ReactDOM.render(<UserProfile Username="Aaroophan" Best1={1} Best2={2} Played={10} Won={8} />, document.getElementById("Box"))}}>Profile</button><br/>
+                    <button className="btn btn-danger btn-lg m-2 fw-bold" onClick={function Call(){ReactDOM.render(<Login />, document.getElementById("Box"))}}>Logout</button><br/>
+                </div>
+            );
+        }
               
         function HomePage(){
             return(
@@ -127,11 +140,7 @@
                         <div className="row gx-3 text-center justify-content-center">
                             <div className="col-sm-4 col-md-4 col-lg-6 rounded-4 border border-danger border-5">
                                 <div className="card my-4 text-white" style={{ background: 'rgba(0, 0, 0, 0)', border: 'none',display: 'flex', justifyContent: 'center', alignItems: 'center'}} id="Box">
-                                    <a className="btn btn-danger m-4 fs-2 fw-bold">Domeytoe</a>
-                                    <button className="btn btn-danger btn-lg m-4 fw-bold" onClick={function Call(){ReactDOM.render(<StartGame/>, document.getElementById("Box"))}}>Start Game</button>
-                                    <button className="btn btn-danger btn-lg m-4 fw-bold" onClick={function Call(){ReactDOM.render(<Level/>, document.getElementById("Box"))}}>Levels</button>
-                                    <button className="btn btn-danger btn-lg m-4 fw-bold" onClick={function Call(){ReactDOM.render(<Leaderboard />, document.getElementById("Box"))}}>Leaderboard</button>
-                                    <button className="btn btn-danger btn-lg m-4 fw-bold" onClick={function Call(){ReactDOM.render(<UserProfile Username="Aaroophan" Best1={1} Best2={2} Played={10} Won={8} />, document.getElementById("Box"))}}>Profile</button>
+                                    <Login/>
                                 </div>
                             </div>
                         </div>
@@ -143,7 +152,50 @@
             ReactDOM.render(<HomePage/> , document.getElementById("AppHere"));
             return null;
         }
-            
+         
+        function Register(){
+            return(
+                <div>
+                    <a className="btn btn-danger m-4 fs-2 fw-bold">Login</a>
+                    <br/><br/><br/>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-at"></i></span>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-asterisk"></i></span>
+                        <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1"/>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-asterisk"></i></span>
+                        <input type="password" class="form-control" placeholder="Confirm Password" aria-label="ConfirmPassword" aria-describedby="basic-addon1"/>
+                    </div>
+                    <button type="button" class="btn btn-danger m-3" onClick={function Call(){ReactDOM.render(<Login/>, document.getElementById("Box"))}}><i class="bi bi-door-closed"></i> Register</button>
+                    <br/><br/><br/><br/>
+                </div>
+            );
+        }
+
+        function Login(){
+            return(
+                <div>
+                    <a className="btn btn-danger m-4 fs-2 fw-bold">Login</a>
+                    <br/><br/><br/>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-at"></i></span>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-asterisk"></i></span>
+                        <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1"/>
+                    </div>
+                    <button type="button" class="btn btn-danger m-3" onClick={function Call(){ReactDOM.render(<Register/>, document.getElementById("Box"))}}><i class="bi bi-pen"></i> Register</button>
+                    <button type="button" class="btn btn-danger m-3" onClick={function Call(){ReactDOM.render(<HomeLinks/>, document.getElementById("Box"))}}><i class="bi bi-door-closed"></i> Login</button>
+                    <br/><br/><br/><br/>
+                </div>
+            );
+        }
+
         ReactDOM.render(<HomePageCall/> , document.getElementById("AppHere"));
 
         function Hearts(HeartsProps){
@@ -205,27 +257,6 @@
         }
         ReactDOM.render(<Timer /> , document.getElementById("TimerHere"));
 
-        function Elapsed(){
-            let H1 = true;
-            let H2 = true;
-            let H3 = false;
-            return(
-            <div className="container-fluids" >
-                <a className="btn btn-danger btn-lg" style={{ position: 'absolute', top: '400px', left: '1200px'}}>
-                    &nbsp;&nbsp;&nbsp;
-                    <p className="fw-bold"><i class="bi bi-hourglass-split"></i></p>
-                    <p className="fw-bold">Elapsed</p>
-                    <p className="fw-bold">
-                        <i class="bi bi-1-square"></i>
-                        &nbsp;
-                        <i class="bi bi-1-square"></i>
-                    </p>
-                </a>
-            </div>
-            );
-        }
-        //ReactDOM.render(<Elapsed /> , document.getElementById("ElapsedHere"));
-
         function Header(){
             return(
             <div className="container-fluids">
@@ -242,7 +273,7 @@
 
         function Footer(){
             return(
-                <footer className="footer text-light py-1 bottom" style={{ background: 'linear-gradient(to bottom, transparent 0%, #111111 100%)' }}>
+                <footer className="footer text-light py-1 bottom" style={{ background: 'linear-gradient(to bottom, transparent 0%, #290101 100%)' }}>
                     <div className="container">
                         <br/><hr />
                         <div className="text-center">
